@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+
+{% if user.is_authenticated %}
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to WealthyWay Blog </h3>
+                    <p class="text-light">"Welcome to WealthyWay Blog! Join us on the journey to financial success, personal growth, and a brighter future. Let's thrive together!"..! &nbsp
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            {% for post in post_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
+                    <p class="card-text">{{post.content|slice:":200" }}</p>
+                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+    </div>
+</div>
+
+{% else %}
+
+<br>
+
+<h1 class="text-center">Welcome to WealthyWay Blog</h1>
+
+<br><br>
+<h5 class="text-center">Join us on the journey to financial success, personal growth, and a brighter future. Let's thrive together!"..! &nbsp</h5>
+ <br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <a href="{% url 'signup' %}">
+                <button class="btn btn-dark btn-lg btn-block" type="submit">Sign Up</button>
+            </a>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-md-8">
+        <h4>Categories</h4>
+        <br>
+        <h6>Click any of the categories to view content</h6>
+        <br>
+        <ul>
+            {% for category in categories %}
+                <li><a href="{% url 'post_list_by_category' category.slug %}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-md-4">
+        <!-- Quote Card -->
+        <div class="card">
+            <div class="card-body">
+              {% include 'quotes.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

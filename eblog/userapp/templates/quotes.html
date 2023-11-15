@@ -1,0 +1,138 @@
+<!-- templates/quotes.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your head content here -->
+</head>
+<body>
+    <!-- Your existing homepage content -->
+
+    <div class="quotes-container text-center">
+        <h2 class="text-primary">Quotable Quotes</h2>
+        <p class="text-center" id="quote">
+            {% if quote %}{{ quote.text }} - {{ quote.author }}{% else %}Loading...{% endif %}</p>
+    </div>
+
+    <!-- Rest of your homepage content -->
+
+    <script>
+        const quotes = [
+
+        "The only person you are destined to become is the person you decide to be. — Ralph Waldo Emerson",
+
+"Continuous improvement is better than delayed perfection. — Mark Twain",
+
+"The future depends on what you do today. — Mahatma Gandhi",
+
+"Your time is limited, don't waste it living someone else's life. — Steve Jobs",
+
+"The more that you read, the more things you will know. The more that you learn, the more places you'll go. — Dr. Seuss",
+
+"Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful. — Albert Schweitzer",
+
+"The only way to do great work is to love what you do. — Steve Jobs",
+
+        "Health is a state of complete physical, mental, and social well-being, and not merely the absence of disease or infirmity. — World Health Organization",
+
+"The greatest wealth is health.— Virgil",
+
+"To keep the body in good health is a duty... otherwise, we shall not be able to keep our mind strong and clear. — Buddha",
+
+"Your body hears everything your mind says. — Naomi Judd",
+
+"Health is not valued until sickness comes. — Thomas Fuller",
+
+"Those who think they have no time for healthy eating will sooner or later have to find time for illness. — Edward Stanley",
+
+"Take care of your body. It's the only place you have to live. — Jim Rohn",
+
+"Don't work for money; make money work for you. — Robert Kiyosaki",
+
+"Passive income is the key to achieving financial freedom. — Unknown",
+
+"The goal isn't more money. The goal is living life on your terms. — Chris Brogan",
+
+"The rich focus on building assets, while everyone else focuses on earning income. — Robert Kiyosaki",
+
+"Make money while you sleep so that you can live the life you want. — Unknown",
+
+"Creating passive income is the most important step on the path to financial freedom. — Unknown",
+
+        "Discipline is choosing between what you want now and what you want most. — Abraham Lincoln",
+
+"With self-discipline, most anything is possible. — Theodore Roosevelt",
+
+"Self-discipline is the magic power that makes you virtually unstoppable. — Dan Kennedy",
+
+"The pain of discipline is nothing like the pain of disappointment. — Justin Langer",
+
+"Self-discipline is that which, next to virtue, truly and essentially raises one man above another. — Joseph Addison",
+        "Money often costs too much. — Ralph Waldo Emerson",
+
+"A wise person should have money in their head, but not in their heart. — Jonathan Swift",
+
+"Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver. — Ayn Rand",
+
+"Money can't buy happiness, but it can make you awfully comfortable while you're being miserable. — Clare Boothe Luce",
+
+"Too many people spend money they haven't earned to buy things they don't want to impress people they don't like. — Will Rogers",
+
+"The art is not in making money, but in keeping it. — Proverb",
+
+"When I had money everyone called me brother. — Polish proverb",
+
+"The lack of money is no obstacle. The lack of an idea is an obstacle. — Ken Hakuta",
+
+"Money is a terrible master but an excellent servant. — P.T. Barnum",
+
+        "The lack of money is the root of all evil. - Mark Twain",
+
+
+"The goal of a successful trader is to make the best trades. Money is secondary - Alexander Elder.",
+
+"Risk comes from not knowing what you're doing - Warren Buffett.",
+
+"The stock market is a device for transferring money from the impatient to the patient - Warren Buffett.",
+
+"The market is a pendulum that forever swings between unsustainable optimism (which makes stocks too expensive) and unjustified pessimism (which makes them too cheap) - Howard Marks.",
+"The most important quality for an investor is temperament, not intellect - Warren Buffett.",
+
+"The key to making money in stocks is not to get scared out of them - Peter Lynch.",
+
+"It's not whether you're right or wrong that's important, but how much money you make when you're right and how much you lose when you're wrong - George Soros.",
+
+"The time of maximum pessimism is the best time to buy, and the time of maximum optimism is the best time to sell - Sir John Templeton.",
+
+"Investing should be more like watching paint dry or watching grass grow. If you want excitement, take $800 and go to Las Vegas - Paul Samuelson.",
+
+"The market can stay irrational longer than you can stay solvent - John Maynard Keynes.",
+
+"The first rule of investment is don't lose money; the second rule is don't forget the first rule - Warren Buffett.",
+
+"Opportunities come infrequently. When it rains gold, put out the bucket, not the thimble - Warren Buffett.",
+
+"The stock market is filled with individuals who know the price of everything but the value of nothing - Philip Fisher.",
+
+"Diversification may preserve wealth, but concentration builds wealth - Warren Buffett.",
+
+"It is not the strongest of the species that survives, nor the most intelligent; it is the one most responsive to change - Charles Darwin (Adapted to finance).",
+
+"The best investment you can make is in yourself - Warren Buffett.",
+
+"I will tell you how to become rich. Close the doors. Be fearful when others are greedy. Be greedy when others are fearful - Warren Buffett."
+        ];
+
+
+    let currentQuoteIndex = 0;
+    const quoteElement = document.getElementById("quote");
+
+    function displayNextQuote() {
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        quoteElement.textContent = quotes[currentQuoteIndex];
+    }
+
+    setInterval(displayNextQuote, 4000);
+</script>
+
+</body>
+</html>

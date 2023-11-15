@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+
+<h1 class="text-center">Welcome to WealthyWay Blog</h1>
+
+<h5 class="text-center">Join us on the journey to financial success, personal growth, and a brighter future. Let's thrive together!"..! &nbsp</h5>
+ <br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <a href="{% url 'users:signup' %}">
+                <button class="btn btn-dark btn-lg btn-block" type="submit">Sign Up</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
